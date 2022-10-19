@@ -117,10 +117,12 @@ public class Company {
 	
 	public void delete(String type, String title) {
 		
+		int index=0;
+		
 		if(type.equals("film")) {
 			for (Film f : films) {
 				if(f.title.equals(title)) {
-					films.remove(f);
+					index= films.indexOf(f);
 				}
 				
 			}
@@ -136,6 +138,8 @@ public class Company {
 			JOptionPane.showMessageDialog(null, "No Type like this");
 		}
 		
+		films.remove(index);
+		
 	}
 	
 	
@@ -144,6 +148,7 @@ public class Company {
 		Company c = new Company();
 		
 		c.newProduction("film");
+		c.showAllFilms();
 
 		
 
